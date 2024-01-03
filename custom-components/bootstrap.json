@@ -16,9 +16,838 @@
 	},
 	"components": [
 		{
+			"type": "bs-carousel",
+			"htmlPreview": "<ngbd-carousel-basic><ngb-carousel tabindex='0' class='carousel slide' style='display: block; position: relative; height: 200px; background-color: #dee2e6;'><div style='position:relative; width: 100%; overflow: hidden;'><div style='display: block; width: 100%;backface-visibility: hidden; text-align: center;'><h3>First slide label</h3><p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p></div></div><button type='button' style='left: 0; position: absolute; top: 0; bottom: 0; z-index: 1; display: flex; align-items: center; justify-content: center; width: 15%; padding: 0; color: white; text-align: center; background: none; border: 0; opacity: .8;'><span aria-hidden='true' class='carousel-control-prev-icon'></span><span style='width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;'>Previous</span></button><button type='button' style='right: 0; position: absolute; top: 0; bottom: 0; z-index: 1; display: flex; align-items: center; justify-content: center; width: 15%; padding: 0; color: white; text-align: center; background: none; border: 0; opacity: .8;'><span aria-hidden='true' class='carousel-control-next-icon'></span><span style='width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;'>Next</span></button></ngb-carousel></ngbd-carousel-basic>",
+			"inputs": {
+				"animation": "boolean",
+				"interval": "number",
+				"keyboard": "boolean",
+				"pauseOnFocus": "boolean",
+				"pauseOnHover": "boolean",
+				"showNavigationArrows": "boolean",
+				"showNavigationIndicators": "boolean",
+				"wrap": "boolean",
+				"slideHeader": "string",
+				"slideContent": "string"
+			},
+			"defaultInputs": {
+				"animation": "false",
+				"interval": "5000",
+				"slideHeader": "First slide label",
+				"slideContent": "Nulla vitae elit libero, a pharetra augue mollis interdum."
+			},
+			"angular": {
+				"inputs": "@Input() {{variableName}}IsWrap = '{{model.wrap}}'; @Input() {{variableName}}IsShowNavigationIndicators = '{{model.showNavigationIndicators}}'; @Input() {{variableName}}IsShowNavigationArrows = '{{model.showNavigationArrows}}'; @Input() {{variableName}}IsPauseOnHover = '{{model.pauseOnHover}}'; @Input() {{variableName}}IsPauseOnFocus = '{{model.pauseOnFocus}}'; @Input() {{variableName}}IsKeyboard = '{{model.keyboard}}'; @Input() {{variableName}}IsAnimation = '{{model.animation}}'; @Input() {{variableName}}Interval = '{{model.interval}}';",
+				"outputs": "@Output() {{variableName}}Slide = new EventEmitter<any>(); @Output() {{variableName}}Slid = new EventEmitter<any>();",
+				"template": " <ngb-carousel {{#unless model.wrap}}[wrap]='{{variableName}}IsWrap'{{/unless}} {{#unless model.showNavigationIndicators}}[showNavigationIndicators]='{{variableName}}IsShowNavigationIndicators'{{/unless}} {{#unless model.pauseOnHover}}[pauseOnHover]='{{variableName}}IsPauseOnHover'{{/unless}} {{#unless model.pauseOnFocus}}[pauseOnFocus]='{{variableName}}IsPauseOnFocus'{{/unless}} [animation]='{{variableName}}IsAnimation' [interval]='{{variableName}}Internal' {{#unless model.keyboard}}[keyboard]='{{variableName}}IsKeyboard'{{/unless}} ><ng-template ngbSlide> <h3>{{model.slideHeader}}</h3><p>{{model.slideContent}}</p> </ng-template>{{children}}</ngb-carousel>"
+			},
+			"htmlThumbnail": "<ngbd-carousel-basic><ngb-carousel class='carousel slide' style='display: block; position: relative; height: 200px; background-color: #dee2e6;'><div style='position:relative; width: 100%; overflow: hidden;'><div style='display: block; width: 100%;backface-visibility: hidden; text-align: center;'><p>content</p></div></div><button type='button' style='left: 0; position: absolute; top: 0; bottom: 0; z-index: 1; display: flex; justify-content: center; width: 15%; padding: 0; color: black; text-align: center; background: none; border: 0; opacity: .8;'><span style='border-style: solid; border-width: .2em .2em 0 0; display: inline-block; width: .75em; height: .75em; margin-left: .25em; margin-right: .15em; transform: rotate(-135deg); margin-top: 40px'></span></button><button type='button' style='right: 0; position: absolute; top: 0; bottom: 0; z-index: 1; display: flex; justify-content: center; width: 15%; padding: 0; color: black; text-align: center; background: none; border: 0; opacity: .8;'><span style='border-style: solid; border-width: .2em .2em 0 0; display: inline-block; width: .75em; height: .75em; margin-left: .25em; margin-right: .15em; transform: rotate(45deg); margin-top: 40px;'></span></button></ngb-carousel></ngbd-carousel-basic>"
+		},
+		{
+			"type": "bs-datepicker",
+			"htmlPreview": "<ngbd-datepicker-basic><ngb-datepicker style='margin-left: 1rem; border: 1px solid #dee2e6; border-radius: .25rem; display: inline-block;'><div style='border-bottom: 0; border-radius: .25rem .25rem 0 0; padding-top: .25rem; background-color: #f8f9fa;'><ngb-datepicker-navigation style='display: flex; align-items: center;'><div style='display: flex; flex: 1 1 auto; padding-right: 0; padding-left: 0; margin: 0; width: 2rem; height: 2rem;'><button type='button' title='Previous month' style='padding: 0 0.25rem; margin: 0 0.5rem; border: none; background: transparent; z-index: 1;' class='btn btn-link ngb-dp-arrow-btn'><span style='border-style: solid; border-width: .2em .2em 0 0; display: inline-block; width: .75em; height: .75em; margin-left: .25em; margin-right: .15em; transform: rotate(-135deg);'></span></button></div><ngb-datepicker-navigation-select style='display: flex; flex: 1 1 9rem;'><select title='Select month' style='pointer-events: none; flex: 1 1 auto; padding: 0 0.5rem; font-size: .875rem; height: 1.85rem; display: block; width: 100%; font-weight: 400; line-height: 1.5; color: black; appearance: none; background-color: white; background-repeat: no-repeat; background-position: right .75rem center; background-size: 16px 12px; border: 1px solid #dee2e6; border-radius: .375rem;' class='form-select'></select><select title='Select year' style='pointer-events: none; flex: 1 1 auto; padding: 0 0.5rem; font-size: .875rem; height: 1.85rem; display: block; width: 100%; font-weight: 400; line-height: 1.5; color: black; appearance: none; background-color: white; background-repeat: no-repeat; background-position: right .75rem center; background-size: 16px 12px; border: 1px solid #dee2e6; border-radius: .375rem;' class='form-select'></select></ngb-datepicker-navigation-select><div style='display: flex; justify-content: flex-end; flex: 1 1 auto; padding-right: 0; padding-left: 0; margin: 0; width: 2rem; height: 2rem;' class='ngb-dp-arrow ngb-dp-arrow-next'><button type='button' title='Next month' style='padding: 0 0.25rem; margin: 0 0.5rem; border: none; background: transparent; z-index: 1;' class='btn btn-link ngb-dp-arrow-btn'><span style='border-style: solid; border-width: .2em .2em 0 0; display: inline-block; width: .75em; height: .75em; margin-left: .25em; margin-right: .15em; transform: rotate(45deg);'></span></button></div></ngb-datepicker-navigation></div><div style='display: flex;'><div style='pointer-events: none;'><ngb-datepicker-month style='pointer-events: none; display: block;'><div style='padding-left: .25rem; display: flex; border-bottom: 1px solid #dee2e6; border-radius: 0; background-color: #f8f9fa;'><div style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .875rem;' >Mo</div><div style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .875rem;'>Tu</div><div style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .875rem;'>We</div><div style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .875rem;'>Th</div><div style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .875rem;'>Fr</div><div style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .875rem;'>Sa</div><div style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .875rem;'>Su</div></div><div style='padding-left: 1rem; border-radius: .25rem; display: flex;'><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light text-muted outside'>27</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light text-muted outside'>28</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light text-muted outside'>29</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light text-muted outside'>30</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='0'><div class='btn-light'>1</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>2</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>3</div></div></div><div style='padding-left: 1rem; border-radius: .25rem; display: flex;'><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>4</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>5</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>6</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>7</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>8</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>9</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>10</div></div></div><div style='padding-left: 1rem; border-radius: .25rem; display: flex;'><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>11</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>12</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>13</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>14</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>15</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>16</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>17</div></div></div><div style='padding-left: 1rem; border-radius: .25rem; display: flex;'><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>18</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>19</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>20</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>21</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>22</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>23</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>24</div></div></div><div style='padding-left: 1rem; border-radius: .25rem; display: flex;'><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>25</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>26</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>27</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>28</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>29</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>30</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light'>31</div></div></div><div style='padding-left: 1rem; border-radius: .25rem; display: flex;'><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light text-muted outside'>1</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light text-muted outside'>2</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light text-muted outside'>3</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light text-muted outside'>4</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light text-muted outside'>5</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light text-muted outside'>6</div></div><div style='cursor: pointer; width: 2rem; height: 2rem;' tabindex='-1'><div class='btn-light text-muted outside'>7</div></div></div></ngb-datepicker-month></div></div></ngb-datepicker></ngbd-datepicker-basic>",
+			"inputs": {
+				"displayMonths": "number",
+				"firstDayOfWeek": "number",
+				"day": "number",
+				"month": "number",
+				"year": "number",
+				"navigation": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "select",
+							"text": "Select"
+						},
+						{
+							"id": "arrows",
+							"text": "Arrows"
+						},
+						{
+							"id": "none",
+							"text": "None"
+						}
+					]
+				},
+				"outsideDays": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "visible",
+							"text": "Visible"
+						},
+						{
+							"id": "hidden",
+							"text": "Hidden"
+						},
+						{
+							"id": "collapsed",
+							"text": "Collapsed"
+						}
+					]
+				},
+				"showWeekNumbers": "boolean",
+				"weekdays": "boolean"
+			},
+			"defaultInputs": {
+				"displayMonths": "11",
+				"firstDayOfWeek": "1",
+				"navigation": "select",
+				"outsideDays": "visible"
+			},
+			"angular": {
+				"inputs": "@Input() {{variableName}}IsWeekdays = '{{model.weekdays}}'; @Input() {{variableName}}IsShowWeekNumbers = '{{model.showWeekNumbers}}'; @Input() {{variableName}}OutsideDays = '{{model.outsideDays}}'; @Input() {{variableName}}Navigation = '{{model.navigation}}'; @Input() {{variableName}}Year = '{{model.year}}'; @Input() {{variableName}}Month = '{{model.month}}'; @Input() {{variableName}}Day = '{{model.day}}'; @Input() {{variableName}}FirstDayOfWeek = '{{model.firstDayOfWeek}}'; @Input() {{variableName}}DisplayMonths = '{{model.displayMonths}}';",
+				"outputs": "@Output() {{variableName}}DateSelect = new EventEmitter<any>(); @Output() {{variableName}}Navigate = new EventEmitter<any>();",
+				"template": "<ngb-datepicker #dp {{#if model.weekdays}}[weekdays]='{{variableName}}IsWeekdays'{{/if}} {{#unless model.showWeekNumbers}}[showWeekNumbers]='{{variableName}}IsShowWeekNumbers'{{/unless}} [outsideDays]='{{variableName}}OutsideDays' [navigation]='{{variableName}}Navigation' [firstDayOfWeek]='{{variableName}}FirstDayOfWeek' [displayMonths]='{{variableName}}DisplayMonths' [(ngModel)]='{\"day\": {{model.day}}, \"month\": {{model.month}}, \"year\": {{model.year}} }' (navigate)='date = $event.next' />"
+			},
+			"htmlThumbnail": "<ngbd-datepicker-basic><ngb-datepicker style='margin-left: -.3rem; margin-top:1rem; border: 1px solid #dee2e6; border-radius: .25rem; display: inline-block;'><div style='display: flex;'><div style='pointer-events: none;'><ngb-datepicker-month style='width: 100px; pointer-events: none; display: block;'><div role='row' style='padding-left: .25rem; display: flex; border-bottom: 1px solid #dee2e6; border-radius: 0; background-color: #f8f9fa;'><div style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .575rem;'>Mo</div><div role='columnheader' style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .575rem;'>Tu</div><div role='columnheader' style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .575rem;'>We</div><div style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .575rem;'>Th</div><div style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .575rem;'>Fr</div><div style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .575rem;'>Sa</div><div style='width: 2rem; height: 2rem; color: #0dcaf0; line-height: 2rem; text-align: center; font-style: italic; font-size: .575rem;'>Su</div></div></ngb-datepicker-month></div></div></ngb-datepicker></ngbd-datepicker-basic>"
+		},
+		{
+			"type": "bs-toast",
+			"htmlPreview": "<ngb-toast style='display: block; width: 350px; max-width: 100%; font-size: .875rem; background-color: rgba( 255, 255, 255 , .85); background-clip: padding-box; border: 1px solid rgba(0, 0, 0, .175); box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15); border-radius: .375rem;'><div style='padding: 5rem; word-wrap: break-word;'>{{description}}</div></ngb-toast>",
+			"inputs": {
+				"animation": "boolean",
+				"autohide": "boolean",
+				"delay": "number",
+				"header": "string",
+				"description": "string"
+			},
+			"defaultInputs": {
+				"delay": "5000"
+			},
+			"angular": {
+				"inputs": "@Input() {{variableName}}Header = '{{model.header}}'; @Input() {{variableName}}Delay = '{{model.delay}}'; @Input() {{variableName}}IsAutohide = '{{model.autohide}}'; @Input() {{variableName}}IsAnimation = '{{model.animation}}';",
+				"outputs": "@Output() {{variableName}}Hidden = new EventEmitter<any>(); @Output() {{variableName}}Shown = new EventEmitter<any>();",
+				"template": "<ngb-toast [delay]='{{variableName}}Delay' {{#if model.animation}}[animation]='{{variableName}}Animation'{{/if}} {{#unless model.autohide}}[autohide]='{{variableName}}IsAutohide'{{/unless}} {{#if model.header}}[header]='{{variableName}}Header'{{/if}}  >{{model.description}} {{children}}</ngb-toast>"
+			},
+			"htmlThumbnail": "<ngb-toast style='display: block; margin-top:10px; height:60px width: 350px; max-width: 100%; font-size: .875rem; background-color: rgba( 255, 255, 255 , .85); background-clip: padding-box; border: 1px solid rgba(0, 0, 0, .175); box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15); border-radius: .375rem;'><div style='padding: .5rem; word-wrap: break-word;'>Toast Content</div></ngb-toast>"
+		},
+		{
+			"type": "bs-pagination",
+			"htmlPreview": "<ngb-pagination><ul style='display: flex; padding-left: 0; list-style: none; color: #0d6efd; padding-left: .75rem; padding-right: .75rem; padding-top: .375rem; padding-bottom: .375rem;'><li class='page-item'><a href='' style='background-color: #fff; color: #0d6efd; position: relative; display: block; padding: .375rem .75rem; font-size: 1rem; text-decoration: none; border: 1px solid #dee2e6;'>1</a></li><li class='page-item'><a href='' style='background-color: #fff; color: #0d6efd; position: relative; display: block; padding: .375rem .75rem; font-size: 1rem; text-decoration: none; border: 1px solid #dee2e6;'>2</a></li><li class='page-item'><a href='' style='background-color: #fff; color: #0d6efd; position: relative; display: block; padding: .375rem .75rem; font-size: 1rem; text-decoration: none; border: 1px solid #dee2e6;'>3</a></li><li class='page-item' style='background-color: #0d6efd; color: white;' aria-current='page'><a href='' style='background-color: #fff; color: #0d6efd; position: relative; display: block; padding: .375rem .75rem; font-size: 1rem; text-decoration: none; border: 1px solid #dee2e6;'>4</a></li><li class='page-item'><a href='' style='background-color: #fff; color: #0d6efd; position: relative; display: block; padding: .375rem .75rem; font-size: 1rem; text-decoration: none; border: 1px solid #dee2e6;'>5</a></li></ul></ngb-pagination>",
+			"inputs": {
+				"boundaryLinks": "boolean",
+				"collectionSize": "number",
+				"directionLinks": "boolean",
+				"disabled": "boolean",
+				"ellipses": "boolean",
+				"maxSize": "number",
+				"page": "number",
+				"pageSize": "number",
+				"rotate": "boolean",
+				"size": "string"
+			},
+			"defaultInputs": {},
+			"angular": {
+				"inputs": "@Input() {{variableName}}Size = '{{model.size}}'; @Input() {{variableName}}IsRotate = '{{model.rotate}}'; @Input() {{variableName}}PageSize = '{{model.pageSize}}'; @Input() {{variableName}}Page = '{{model.page}}'; @Input() {{variableName}}MaxSize = '{{model.maxSize}}'; @Input() {{variableName}}IsEllipses = '{{model.ellipses}}'; @Input() {{variableName}}IsDisabled = '{{model.disabled}}'; @Input() {{variableName}}IsDirectionLinks = '{{model.directionLinks}}'; @Input() {{variableName}}CollectionSize = '{{model.collectionSize}}'; @Input() {{variableName}}IsBoundaryLinks = '{{model.boundaryLinks}}';",
+				"outputs": "@Output() {{variableName}}PageChange = new EventEmitter<any>();",
+				"template": "<ngb-pagination [size]='{{variableName}}Size' {{#if model.rotate}}[rotate]='{{variableName}}IsRotate'{{/if}} [pageSize]='{{variableName}}PageSize' [maxSize]='{{variableName}}MaxSize' {{#unless model.ellipses}}[ellipses]='{{variableName}}IsEllipses'{{/unless}} {{#if model.disabled}}[disabled]='{{variableName}}IsDisabled'{{/if}}  {{#unless model.directionLinks}}[directionLinks]='{{variableName}}IsDirectionLinks'{{/unless}} {{#if model.boundaryLinks}}[boundaryLinks]='{{variableName}}IsBoundaryLinks'{{/if}} [collectionSize]='{{variableName}}CollectionSize'  [(page)]='{{variableName}}Page' />"
+			},
+			"htmlThumbnail": "<ngb-pagination><ul style='display: flex; list-style: none; color: #0d6efd; margin-top: 15px; margin-left: -6px;'><li class='page-item'><a href='' style='background-color: #fff; color: #0d6efd; position: relative; display: block; padding: .375rem .75rem; font-size: 1rem; text-decoration: none; border: 1px solid #dee2e6;'>1</a></li><li class='page-item'><a href='' style='background-color: #fff; color: #0d6efd; position: relative; display: block; padding: .375rem .75rem; font-size: 1rem; text-decoration: none; border: 1px solid #dee2e6;'>2</a></li><li class='page-item'><a href='' style='background-color: #fff; color: #0d6efd; position: relative; display: block; padding: .375rem .75rem; font-size: 1rem; text-decoration: none; border: 1px solid #dee2e6;'>3</a></li></ul></ngb-pagination>"
+		},
+		{
+			"type": "bs-timepicker",
+			"htmlPreview": "<div style='display: flex; align-items: center;''><div style='width: 4em; display: flex; flex-direction: column; align-items: center; justify-content: space-around;'><button tabindex='-1' type='button' class='btn btn-link'><span style='border-style: solid; border-width: .2em .2em 0 0; display: inline-block; width: .75em; height: .75em; margin-left: .25em; margin-right: .15em; transform: rotate(-45deg); color: #0d6efd;'></span></button><input type='text' maxlength='2' inputmode='numeric' placeholder='HH' style='text-align: center; display: block; width: 100%; padding: 0.375rem 0.75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; appearance: none; background-color: white; background-clip: padding-box; border: 1px solid #dee2e6; border-radius: .375rem;'><button tabindex='-1' type='button' class='btn btn-link'><span style='border-style: solid; border-width: .2em .2em 0 0; display: inline-block; width: .75em; height: .75em; margin-left: .25em; margin-right: .15em; transform: rotate(135deg); color: #0d6efd;'></span></button></div><div style='width: 1em; text-align: center;'>:</div><div style='width: 4em; display: flex; flex-direction: column; align-items: center; justify-content: space-around;'><button tabindex='-1' type='button' class='btn btn-link'><span style='border-style: solid; border-width: .2em .2em 0 0; display: inline-block; width: .75em; height: .75em; margin-left: .25em; margin-right: .15em; transform: rotate(-45deg); color: #0d6efd;'></span></button><input type='text' maxlength='2' inputmode='numeric' placeholder='MM' aria-label='Minutes' style='text-align: center; display: block; width: 100%; padding: 0.375rem 0.75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; appearance: none; background-color: white; background-clip: padding-box; border: 1px solid #dee2e6; border-radius: .375rem;'><button tabindex='-1' type='button' class='btn btn-link'><span style='border-style: solid; border-width: .2em .2em 0 0; display: inline-block; width: .75em; height: .75em; margin-left: .25em; margin-right: .15em; transform: rotate(135deg); color: #0d6efd;'></span></button></div></div>",
+			"inputs": {
+				"hourStep": "string",
+				"meridian": "boolean",
+				"minuteStep": "number",
+				"readonlyInputs": "boolean",
+				"seconds": "boolean",
+				"secondStep": "number",
+				"size": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "small",
+							"text": "Small"
+						},
+						{
+							"id": "medium",
+							"text": "Medium"
+						},
+						{
+							"id": "large",
+							"text": "Large"
+						}
+					]
+				},
+				"spinners": "boolean",
+				"hour": "number",
+				"minute": "number",
+				"second": "number"
+			},
+			"defaultInputs": {
+				"hour": "2",
+				"minute": "3",
+				"second": "0",
+				"hourStep": "1",
+				"minuteStep": "1",
+				"secondStep": "1",
+				"size": "medium",
+				"spinners": "true"
+			},
+			"angular": {
+				"inputs": "@Input() {{variableName}}IsSpinners = '{{model.spinners}}'; @Input() {{variableName}}Size = '{{model.size}}'; @Input() {{variableName}}SecondStep = '{{model.secondStep}}'; @Input() {{variableName}}IsSeconds = '{{model.seconds}}'; @Input() {{variableName}}IsReadonlyInputs = '{{model.readonlyInputs}}'; @Input() {{variableName}}MinuteStep = '{{model.minuteStep}}'; @Input() {{variableName}}HourStep = '{{model.hourStep}}'; @Input() {{variableName}}IsMeridian = '{{model.meridian}}';",
+				"template": "<ngb-timepicker [size]='{{variableName}}Size' [secondStep]='{{variableName}}SecondStep' [minuteStep]='{{variableName}}MinuteStep' {{#if model.spinners}}[spinners]='{{variableName}}IsSpinners'{{/if}} {{#if model.seconds}}[seconds]='{{variableName}}IsSeconds'{{/if}} {{#if model.readonlyInputs}}[readonlyInputs]='{{variableName}}IsReadonlyInputs'{{/if}} {{#if model.meridian}}[meridian]='{{variableName}}Meridian'{{/if}} [hourStep]='{{variableName}}HourStep' [(ngModel)]='{\"hour\": {{model.hour}}, \"minute\": {{model.minute}}, \"second\": {{model.second}} }' />"
+			},
+			"htmlThumbnail": "<div style='display: flex; align-items: center; margin-top:10px;''><div style='width: 4em; display: flex; flex-direction: column; align-items: center; justify-content: space-around;'><input type='text' maxlength='2' inputmode='numeric' placeholder='H' style='text-align: center; display: block; width: 100%; padding: 0.375rem 0.75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; appearance: none; background-color: white; background-clip: padding-box; border: 1px solid #dee2e6; border-radius: .375rem;'></div><div style='width: 1em; text-align: center;'>:</div><div style='width: 4em; display: flex; flex-direction: column; align-items: center; justify-content: space-around;'><input type='text' maxlength='2' inputmode='numeric' placeholder='M' aria-label='Minutes' style='text-align: center; display: block; width: 100%; padding: 0.375rem 0.75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #212529; appearance: none; background-color: white; background-clip: padding-box; border: 1px solid #dee2e6; border-radius: .375rem;'></div></div>"
+		},
+		{
+			"type": "bs-rating",
+			"htmlPreview": "<ngbd-rating-basic><ngb-rating role='slider' class='d-inline-flex' tabindex='0'><span  style='width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;'></span><span style='cursor: pointer;'>★ </span><span  style='width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;'></span><span style='cursor: pointer;'>★ </span><span  style='width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;'></span><span style='cursor: pointer;'>★ </span><span  style='width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;'></span><span style='cursor: pointer;'>★ </span><span  style='width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;'></span><span style='cursor: pointer;'>☆ </span><span  style='width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;'></span><span style='cursor: pointer;'>☆ </span> </ngb-rating><hr><pre>Rate: <b>4</b></pre></ngbd-rating-basic>",
+			"inputs": {
+				"disabled": "boolean",
+				"max": "number",
+				"rate": "number",
+				"readonly": "boolean",
+				"resettable": "boolean"
+			},
+			"defaultInputs": {
+				"rate": "4",
+				"max": "6"
+			},
+			"angular": {
+				"inputs": "@Input() {{variableName}}IsResettable = '{{model.resettable}}'; @Input() {{variableName}}IsReadonly = '{{model.readonly}}'; @Input() {{variableName}}Rate = '{{model.rate}}'; @Input() {{variableName}}Max = '{{model.max}}'; @Input() {{variableName}}IsDisabled = '{{model.disabled}}';",
+				"outputs": "@Output() {{variableName}}RateChange = new EventEmitter<any>(); @Output() {{variableName}}Hover = new EventEmitter<any>(); @Output() {{variableName}}Leave = new EventEmitter<any>();",
+				"template": "<ngb-rating [max]='{{variableName}}Max' {{#if model.disabled}}[disabled]='{{variableName}}IsDisabled'{{/if}} {{#if model.readonly}}[readonly]='{{variableName}}IsReadonly'{{/if}} {{#if model.resettable}}[resettable]='{{variableName}}IsResettable'{{/if}} [(rate)]='{{variableName}}Rate' /><hr /><pre>Rate: <b>{{ model.rate }}</b></pre>"
+			},
+			"htmlThumbnail": "<ngbd-rating-basic style='display: block; margin-top: 10px;'><ngb-rating role='slider' class='d-inline-flex' tabindex='0'><span  style='width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;'></span><span style='cursor: pointer;'>★ </span><span  style='width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;'></span><span style='cursor: pointer;'>☆ </span><span  style='width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important;'></span><span style='cursor: pointer;'>☆ </span> </ngb-rating><hr><pre>Rate: <b>1</b></pre></ngbd-rating-basic>"
+		},
+		{
+			"type": "bs-nav-item",
+			"htmlPreview": "<li style='display: list-item; text-align: -webkit-match-parent;' role='presentation'><button type='button' ngbnavlink id='ngb-nav-207' role='tab' style='padding: .5rem; color: black; background-color: white; border-color: #dee2e6 #dee2e6 #fff; margin-bottom: calc(-1 * 1px); border: 1px solid transparent; border-left: 1px solid #dee2e6; border-top: 1px solid #dee2e6; border-right: 1px solid #dee2e6; border-top-left-radius: 0.375rem; border-top-right-radius: 0.375rem;'>{{title}}</button></li><div ngbnavpane style='display: block; padding-left: .5rem;' id='ngb-nav-207-panel' role='tabpanel'></div></div></ngbd-nav-basic>",
+			"inputs": {
+				"title": "string",
+				"description": "string",
+				"customId": "string"
+			},
+			"defaultInputs": {
+				"title": "title",
+				"description": "description",
+				"customId": "sample id"
+			},
+			"angular": {
+				"template": "<li [ngbNavItem]='{{model.customId}}'><button ngbNavLink>{{model.title}}</button><ng-template ngbNavContent><p>{{model.description}}</p></ng-template></li>"
+			},
+			"htmlThumbnail": "<p>bs-nav item</p>"
+		},
+		{
+			"type": "bs-nav",
+			"htmlPreview": "<ngbd-nav-basic><ul ngbnav style='margin: .5rem .5rem 0 .5rem; border-bottom: 1px solid #dee2e6; border-color: #dee2e6; display: flex; flex-wrap: wrap; padding-left: 0; margin-bottom: 0; list-style: none;'><li style='display: list-item; text-align: -webkit-match-parent;' role='presentation'><button type='button' ngbnavlink id='ngb-nav-207' role='tab' style='padding: .5rem; color:#0d6efd; background-color: white; border-color: #dee2e6 #dee2e6 #fff; margin-bottom: calc(-1 * 1px); border: 1px solid transparent; border-top-left-radius: 0.375rem; border-top-right-radius: 0.375rem; border-bottom: 1px'>One</button></li><li style='display: list-item; text-align: -webkit-match-parent;' role='presentation'><button type='button' ngbnavlink id='ngb-nav-207' role='tab' style='padding: .5rem; color: black; background-color: white; border-color: #dee2e6 #dee2e6 #fff; margin-bottom: calc(-1 * 1px); border: 1px solid transparent; border-left: 1px solid #dee2e6; border-top: 1px solid #dee2e6; border-right: 1px solid #dee2e6; border-top-left-radius: 0.375rem; border-top-right-radius: 0.375rem;'>Two</button></li>{{children}}</ul><div style='margin-top: 0.5rem !important;'><div ngbnavpane style='display: block; padding-left: .5rem;' id='ngb-nav-207-panel' role='tabpanel'><p>{{description}}</p></div></div></ngbd-nav-basic>",
+			"inputs": {
+				"activeId": "string",
+				"animation": "boolean",
+				"destroyOnHide": "boolean",
+				"keyboard": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "true",
+							"text": "True"
+						},
+						{
+							"id": "false",
+							"text": "False"
+						},
+						{
+							"id": "changeWithArrows",
+							"text": "Change with arrows"
+						}
+					]
+				},
+				"orientation": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "horizontal",
+							"text": "Horizontal"
+						},
+						{
+							"id": "vertical",
+							"text": "Vertical"
+						}
+					]
+				},
+				"description": "string"
+			},
+			"defaultInputs": {
+				"keyboard": "true",
+				"destroyOnHide": "true",
+				"description": "sample description 2",
+				"items": []
+			},
+			"angular": {
+				"inputs": "@Input() {{variableName}}Orientation = '{{model.orientation}}'; @Input() {{variableName}}Keyboard = '{{model.keyboard}}'; @Input() {{variableName}}ActiveId = '{{model.activeId}}'; @Input() {{variableName}}IsAnimation = '{{model.animation}}'; @Input() {{variableName}}isDestroyOnHide = '{{model.destroyOnHide}}';",
+				"outputs": "@Output() {{variableName}}IsShown = new EventEmitter<any>(); @Output() {{variableName}}NavChange = new EventEmitter<any>(); @Output() {{variableName}}ActiveIdChange = new EventEmitter<any>(); @Output() {{variableName}}IsHidden = new EventEmitter<any>();",
+				"template": "<ul ngbNav #nav='ngbNav' {{#if model.destroyOnHide}}[destroyOnHide]='{{variableName}}isDestroyOnHide'{{/if}} {{#if model.animation}}[animation]='{{variableName}}IsAnimation'{{/if}} [Orientation]='{{variableName}}Orientation' [keyboard]='{{variableName}}Keyboard' [(activeId)]='{{variableName}}ActiveId' class='nav-tabs'><li [ngbNavItem]='1'><button ngbNavLink>One</button><ng-template ngbNavContent><p>sample description 1</p></ng-template></li><li [ngbNavItem]='2'><button ngbNavLink>Two</button><ng-template ngbNavContent><p>{{model.description}}</p></ng-template></li>{{children}}</ul>"
+			},
+			"htmlThumbnail": "<ngbd-nav-basic><ul ngbnav style='margin: .5rem .5rem 0 .5rem; border-bottom: 1px solid #dee2e6; border-color: #dee2e6; display: flex; flex-wrap: wrap; padding-left: 0; margin-bottom: 0; list-style: none;' role='tablist'><li style='display: list-item; text-align: -webkit-match-parent; border-top: 1px solid #dee2e6; border-left: 1px solid #dee2e6; border-right: 1px solid #dee2e6; border-top-left-radius: 0.375rem; border-top-right-radius: 0.375rem;' role='presentation'><button type='button' ngbnavlink id='ngb-nav-207' role='tab' style='padding: .5rem; color:#0d6efd; background-color: white; border-color: #dee2e6 #dee2e6 #fff; margin-bottom: calc(-1 * 1px); border: 1px solid transparent; border-bottom: 1px'>One</button></li></ul><div style='margin-top: 0.5rem !important;'><div ngbnavpane style='display: block; padding-left: .5rem;' id='ngb-nav-207-panel' role='tabpanel'><p>description</p></div></div></ngbd-nav-basic>"
+		},
+		{
+			"type": "bs-collapse",
+			"htmlPreview": "<ngbd-collapse-basic><p><button type='button' class='btn btn-outline-primary'>{{title}}</button></p><div class='collapse show' style><div style='position:relative; display:flex; flex-direction:column; min-width:0; color:#212529; word-wrap:break-word; background-clip:border-box; border:1px solid rgba(0, 0, 0, .175); border-radius: 0.375rem;'><div style='flex:1 1 auto; padding: 1rem 1rem;'>{{content}} {{children}}</div></div></div></ngbd-collapse-basic>",
+			"inputs": {
+				"animation": "boolean",
+				"horizontal": "boolean",
+				"isCollapsed": "boolean",
+				"title": "string",
+				"content": "string"
+			},
+			"defaultInputs": {
+				"title": "Collapse",
+				"content": "placeholder text or child components",
+				"items": []
+			},
+			"angular": {
+				"inputs": "@Input() {{variableName}}Content = '{{model.content}}'; @Input() {{variableName}}Title = '{{model.title}}'; @Input() {{variableName}}IsCollapsed = '{{model.isCollapsed}}'; @Input() {{variableName}}Animation = '{{model.animation}}'; @Input() {{variableName}}Horizontal = '{{model.horizontal}}';",
+				"outputs": "@Output() {{variableName}}isHidden = new EventEmitter<any>(); @Output() {{variableName}}isShown = new EventEmitter<any>();",
+				"template": "<p><button type='button' class='btn btn-outline-primary' (click)='{{variableName}}isCollapsed = !{{variableName}}isCollapsed' [attr.aria-expanded]='!{{variableName}}isCollapsed' aria-controls='collapseExample'> {{model.title}} </button> </p> <div #collapse='ngbCollapse' [(ngbCollapse)]='{{variableName}}IsCollapsed'> <div class='card'> <div class='card-body'>{{model.content}} {{children}}</div> </div> </div>"
+			},
+			"htmlThumbnail": "<p><button style='background: white; padding: .375rem .4rem; font-size: 1rem; color: #0d6efd; text-align: center; vertical-align: middle; line-height: .5rem; border: 1px solid #0d6efd; border-radius: .375rem; margin-left: 1px; margin-top: .3rem;'>toggle</button></p><div class='collapse show' style><div style='position:relative; display:flex; flex-direction:column; min-width:0; color:#212529; word-wrap:break-word; background-clip:border-box; border:1px solid rgba(0, 0, 0, .175); border-radius: 0.375rem;'><div style='flex:1 1 auto; padding: .8rem 1rem;'>content</div></div></div>"
+		},
+		{
+			"type": "bs-dropdown",
+			"htmlPreview": "<div ngbdropdown class='d-inline-block dropdown'><button type='button'  ngbdropdowntoggle class='dropdown-toggle btn btn-outline-primary' > {{ title }} </button><div ngbdropdownmenu class='dropdown-menu' style='position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 40px);'>{{children}}</div></div>",
+			"inputs": {
+				"autoClose": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "true",
+							"text": "True"
+						},
+						{
+							"id": "false",
+							"text": "False"
+						},
+						{
+							"id": "inside",
+							"text": "Inside"
+						},
+						{
+							"id": "outside",
+							"text": "Outside"
+						}
+					]
+				},
+				"display": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "dynamic",
+							"text": "Dynamic"
+						},
+						{
+							"id": "static",
+							"text": "Static"
+						}
+					]
+				},
+				"open": "boolean",
+				"placement": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "top",
+							"text": "Top"
+						},
+						{
+							"id": "top-start",
+							"text": "Top-start"
+						},
+						{
+							"id": "top-left",
+							"text": "Top-left"
+						},
+						{
+							"id": "top-end",
+							"text": "Top-end"
+						},
+						{
+							"id": "top-right",
+							"text": "Top-right"
+						},
+						{
+							"id": "bottom",
+							"text": "Bottom"
+						},
+						{
+							"id": "bottom-start",
+							"text": "Bottom-start"
+						},
+						{
+							"id": "bottom-left",
+							"text": "Bottom-left"
+						},
+						{
+							"id": "bottom-end",
+							"text": "Bottom-end"
+						},
+						{
+							"id": "bottom-right",
+							"text": "Bottom-right"
+						},
+						{
+							"id": "start",
+							"text": "Start"
+						},
+						{
+							"id": "left",
+							"text": "Left"
+						},
+						{
+							"id": "start-top",
+							"text": "Start-top"
+						},
+						{
+							"id": "left-top",
+							"text": "Left-top"
+						},
+						{
+							"id": "start-bottom",
+							"text": "Start-bottom"
+						},
+						{
+							"id": "left-bottom",
+							"text": "Left-bottom"
+						},
+						{
+							"id": "end",
+							"text": "End"
+						},
+						{
+							"id": "right",
+							"text": "Right"
+						},
+						{
+							"id": "end-top",
+							"text": "End-top"
+						},
+						{
+							"id": "right-top",
+							"text": "Right-top"
+						},
+						{
+							"id": "end-bottom",
+							"text": "End-bottom"
+						},
+						{
+							"id": "right-bottom",
+							"text": "Right-bottom"
+						}
+					]
+				},
+				"title": "string"
+			},
+			"defaultInputs": {
+				"title": "Toggle dropdown",
+				"listItems": [
+					{
+						"id": "action1",
+						"text": "Action 1"
+					},
+					{
+						"id": "action2",
+						"text": "Action 2"
+					}
+				]
+			},
+			"angular": {
+				"inputs": "@Input() {{variableName}}Title = '{{model.title}}'; @Input() {{variableName}}Placement = '{{model.placement}}'; @Input() {{variableName}}IsOpen = '{{model.open}}'; @Input() {{variableName}}Display = '{{model.display}}'; @Input() {{variableName}}AutoClose = '{{model.autoClose}}';",
+				"outputs": "@Output() {{variableName}}OpenChange = new EventEmitter<any>();",
+				"template": "<div ngbDropdown [autoClose]='{{variableName}}AutoClose' [display]='{{variableName}}Display' [open]='{{variableName}}IsOpen' [placement]='{{variableName}}Placement' class='d-inline-block'> <button type='button' class='btn btn-outline-primary' id='dropdownBasic1' ngbDropdownToggle> {{model.title}} </button> <div ngbDropdownMenu aria-labelledby='dropdownBasic1'> {{#each model.listItems}} <button ngbDropdownItem>{{text}}</button> {{/each}} </div>"
+			},
+			"htmlThumbnail": "<button style='margin-left:-8px; background: transparent; padding: .375rem .75rem; font-size: 1rem; text-align: center; vertical-align: middle; line-height: 1.5rem; border: 1px solid #0d6efd; border-radius: .375rem;  margin-top: 1rem; display: flex; align-items: center; justify-content: center;'><span style='color:#0d6efd'>Dropdown</span><span style='width: 0; height: 0; border: solid 5px; border-color: #0d6efd transparent transparent transparent; margin-left: 5px'></span></button>"
+		},
+		{
+			"type": "bs-progressbar",
+			"htmlPreview": "<ngbd-progressbar-basic><ngb-progressbar role='progressbar' type='success' class='progress'><div class='progress-bar text-bg-success' style='width: 25%;'></div></ngb-progressbar></ngbd-progressbar-basic>",
+			"inputs": {
+				"animated": "boolean",
+				"ariaLabel": "string",
+				"height": "string",
+				"max": "number",
+				"showValue": "boolean",
+				"striped": "boolean",
+				"value": "number",
+				"textType": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "success",
+							"text": "Success"
+						},
+						{
+							"id": "info",
+							"text": "Info"
+						},
+						{
+							"id": "warning",
+							"text": "Warning"
+						},
+						{
+							"id": "danger",
+							"text": "Danger"
+						},
+						{
+							"id": "primary",
+							"text": "Primary"
+						},
+						{
+							"id": "secondary",
+							"text": "Secondary"
+						},
+						{
+							"id": "light",
+							"text": "Light"
+						},
+						{
+							"id": "dark",
+							"text": "Dark"
+						}
+					]
+				},
+				"category": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "success",
+							"text": "Success"
+						},
+						{
+							"id": "info",
+							"text": "Info"
+						},
+						{
+							"id": "warning",
+							"text": "Warning"
+						},
+						{
+							"id": "danger",
+							"text": "Danger"
+						},
+						{
+							"id": "primary",
+							"text": "Primary"
+						},
+						{
+							"id": "secondary",
+							"text": "Secondary"
+						},
+						{
+							"id": "light",
+							"text": "Light"
+						},
+						{
+							"id": "dark",
+							"text": "Dark"
+						}
+					]
+				}
+			},
+			"defaultInputs": {
+				"category": "success",
+				"value": 0,
+				"max": 100
+			},
+			"angular": {
+				"inputs": "@Input() {{variableName}}Type = '{{model.category}}'; @Input() {{variableName}}TextType = '{{model.textType}}'; @Input() {{variableName}}Value = '{{model.value}}'; @Input() {{variableName}}Striped = '{{model.striped}}'; @Input() {{variableName}}Animated = '{{model.animated}}'; @Input() {{variableName}}AriaLabel = '{{model.ariaLabel}}'; @Input() {{variableName}}Height = '{{model.height}}'; @Input() {{variableName}}Max = '{{model.max}}'; @Input() {{variableName}}ShowValue = '{{model.showValue}}';",
+				"outputs": "",
+				"template": "<ngb-progressbar [max]='{{variableName}}Max' [height]='{{variableName}}Height' [ariaLabel]='{{variableName}}AriaLabel' [type]='{{variableName}}Category' [textType]='{{variableName}}TextType' [value]='{{variableName}}Value' {{#if model.striped}}[striped]='{{variableName}}Striped'{{/if}} {{#if model.animated}}[animated]='{{variableName}}Animated'{{/if}} {{#if model.showValue}}[showValue]='{{variable}}ShowValue'{{/if}}></ngb-progressbar>"
+			},
+			"htmlThumbnail": "<div style='margin-top: 1.5rem; background-color: #f1f1f1'><div style=' color: #000 ; background-color: #0dcaf0  ; height:24px;width:60%'></div></div>"
+		},
+		{
+			"type": "bs-alert",
+			"htmlPreview": "<ngbd-alert-basic><ngb-alert class='alert alert-warning show fade'>{{message}}</ngb-alert></ngbd-alert-basic>",
+			"inputs": {
+				"animation": "boolean",
+				"dismissible": "boolean",
+				"message": "string",
+				"category": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "success",
+							"text": "Success"
+						},
+						{
+							"id": "info",
+							"text": "Info"
+						},
+						{
+							"id": "warning",
+							"text": "Warning"
+						},
+						{
+							"id": "danger",
+							"text": "Danger"
+						},
+						{
+							"id": "primary",
+							"text": "Primary"
+						},
+						{
+							"id": "secondary",
+							"text": "Secondary"
+						},
+						{
+							"id": "light",
+							"text": "Light"
+						},
+						{
+							"id": "dark",
+							"text": "Dark"
+						}
+					]
+				}
+			},
+			"defaultInputs": {
+				"category": "warning",
+				"message": "Alert"
+			},
+			"angular": {
+				"inputs": "@Input() {{variableName}}Animation = '{{model.animation}}'; @Input() {{variableName}}Dismissible = '{{model.dismissible}}'; @Input() {{variableName}}Message = '{{model.message}}'; @Input() {{variableName}}Type = '{{model.category}}';",
+				"outputs": "@Output() {{variableName}}isClosed = new EventEmitter<any>();",
+				"template": "<ngb-alert {{#if model.animation}}[animation]='{{variableName}}Animation'{{/if}} {{#if model.dismissible}}[dismissible]='{{variableName}}Dismissible'{{/if}}  [type]='{{variableName}}Type' class='alert alert-warning show fade' role='alert'> {{model.message}} </ngb-alert>"
+			},
+			"htmlThumbnail": "<button style='background: #fff3cd; padding: .375rem .75rem; font-size: 1rem; text-align: center; vertical-align: middle; line-height: 1.5rem; border: 1px solid #ffc107; border-radius: .375rem;  margin-top: .5rem;' {{#if disabled}}disabled{{/if}}>{{message}}: Message</button>"
+		},
+		{
+			"type": "bs-popover",
+			"htmlPreview": "<button class='btn btn-outline-secondary'>{{title}}</button>",
+			"inputs": {
+				"triggers": "string",
+				"placement": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "top",
+							"text": "Top"
+						},
+						{
+							"id": "top-start",
+							"text": "Top-start"
+						},
+						{
+							"id": "top-left",
+							"text": "Top-left"
+						},
+						{
+							"id": "top-end",
+							"text": "Top-end"
+						},
+						{
+							"id": "top-right",
+							"text": "Top-right"
+						},
+						{
+							"id": "bottom",
+							"text": "Bottom"
+						},
+						{
+							"id": "bottom-start",
+							"text": "Bottom-start"
+						},
+						{
+							"id": "bottom-left",
+							"text": "Bottom-left"
+						},
+						{
+							"id": "bottom-end",
+							"text": "Bottom-end"
+						},
+						{
+							"id": "bottom-right",
+							"text": "Bottom-right"
+						},
+						{
+							"id": "start",
+							"text": "Start"
+						},
+						{
+							"id": "left",
+							"text": "Left"
+						},
+						{
+							"id": "start-top",
+							"text": "Start-top"
+						},
+						{
+							"id": "left-top",
+							"text": "Left-top"
+						},
+						{
+							"id": "start-bottom",
+							"text": "Start-bottom"
+						},
+						{
+							"id": "left-bottom",
+							"text": "Left-bottom"
+						},
+						{
+							"id": "end",
+							"text": "End"
+						},
+						{
+							"id": "right",
+							"text": "Right"
+						},
+						{
+							"id": "end-top",
+							"text": "End-top"
+						},
+						{
+							"id": "right-top",
+							"text": "Right-top"
+						},
+						{
+							"id": "end-bottom",
+							"text": "End-bottom"
+						},
+						{
+							"id": "right-bottom",
+							"text": "Right-bottom"
+						}
+					]
+				},
+				"openDelay": "number",
+				"title": "string",
+				"description": "string",
+				"closeDelay": "number"
+			},
+			"defaultInputs": {
+				"placement": "bottom",
+				"title": "Popover"
+			},
+			"angular": {
+				"inputs": "@Input() {{variableName}}CloseDelay = '{{model.closeDelay}}'; @Input() {{variableName}}Triggers = '{{model.triggers}}'; @Input() {{variableName}}Placement = '{{model.placement}}'; @Input() {{variableName}}OpenDelay = '{{model.openDelay}}'; @Input() {{variableName}}Title = '{{model.title}}'; @Input() {{variableName}}Description = '{{model.description}}'; ",
+				"outputs": "@Output() {{variableName}}hidden = new EventEmitter<any>(); @Output() {{variableName}}shown = new EventEmitter<any>();",
+				"template": "<button [ngbPopover]='{{variableName}}Description' class='btn btn-outline-secondary' {{#if model.openDelay}}[openDelay]='{{variableName}}OpenDelay'{{/if}} {{#if model.closeDelay}}[closeDelay]={{variableName}}CloseDelay{{/if}} {{#if model.triggers}}[triggers]='{{variableName}}Triggers'{{/if}} [placement]='{{variableName}}Placement' {{#if model.disabled}}disablePopover{{/if}}>{{model.title}}</button>"
+			},
+			"htmlThumbnail": "<button style='background: white; padding: .375rem .75rem; font-size: 1rem; color: #6c757d; text-align: center; vertical-align: middle; line-height: 1.5rem; border: 1px solid #6c757d; border-radius: .375rem; margin-left: 5px; margin-top: 1rem;' {{#if disabled}}disabled{{/if}}>{{title}}</button>"
+		},
+		{
+			"type": "bs-tooltip",
+			"htmlPreview": "<button {{#if disabled}}disabled{{/if}} type=\"button\" class=\"btn btn-outline-secondary me-2\">{{text}}</button>",
+			"inputs": {
+				"animation": "boolean",
+				"autoClose": "boolean",
+				"closeDelay": "number",
+				"openDelay": "number",
+				"placement": {
+					"type": "multi-select",
+					"items": [
+						{
+							"id": "top",
+							"text": "Top"
+						},
+						{
+							"id": "top-start",
+							"text": "Top-start"
+						},
+						{
+							"id": "top-left",
+							"text": "Top-left"
+						},
+						{
+							"id": "top-end",
+							"text": "Top-end"
+						},
+						{
+							"id": "top-right",
+							"text": "Top-right"
+						},
+						{
+							"id": "bottom",
+							"text": "Bottom"
+						},
+						{
+							"id": "bottom-start",
+							"text": "Bottom-start"
+						},
+						{
+							"id": "bottom-left",
+							"text": "Bottom-left"
+						},
+						{
+							"id": "bottom-end",
+							"text": "Bottom-end"
+						},
+						{
+							"id": "bottom-right",
+							"text": "Bottom-right"
+						},
+						{
+							"id": "start",
+							"text": "Start"
+						},
+						{
+							"id": "left",
+							"text": "Left"
+						},
+						{
+							"id": "start-top",
+							"text": "Start-top"
+						},
+						{
+							"id": "left-top",
+							"text": "Left-top"
+						},
+						{
+							"id": "start-bottom",
+							"text": "Start-bottom"
+						},
+						{
+							"id": "left-bottom",
+							"text": "Left-bottom"
+						},
+						{
+							"id": "end",
+							"text": "End"
+						},
+						{
+							"id": "right",
+							"text": "Right"
+						},
+						{
+							"id": "end-top",
+							"text": "End-top"
+						},
+						{
+							"id": "right-top",
+							"text": "Right-top"
+						},
+						{
+							"id": "end-bottom",
+							"text": "End-bottom"
+						},
+						{
+							"id": "right-bottom",
+							"text": "Right-bottom"
+						}
+					]
+				},
+				"disabled": "boolean",
+				"text": "string",
+				"triggers": "string",
+				"tooltip": "string"
+			},
+			"defaultInputs": {
+				"placement": "bottom",
+				"text": "Tooltip"
+			},
+			"angular": {
+				"inputs": "@Input() {{variableName}}Text = '{{model.text}}'; @Input() {{variableName}}Triggers = '{{model.triggers}}'; @Input() {{variableName}}Tooltip = '{{model.tooltip}}'; @Input() {{variableName}}Disabled = '{{model.disabled}}'; @Input() {{variableName}}Placement = '{{model.placement}}'; @Input() {{variableName}}Animation = '{{model.animation}}'; @Input() {{variableName}}AutoClose = '{{model.autoClose}}'; @Input() {{variableName}}CloseDelay = '{{model.closeDelay}}'; @Input() {{variableName}}OpenDelay = '{{model.openDelay}}';",
+				"outputs": "@Output() {{variableName}}hidden = new EventEmitter<any>(); @Output() {{variableName}}shown = new EventEmitter<any>();",
+				"template": "<button [ngbtooltip]='{{variableName}}Tooltip' class='btn btn-outline-secondary' {{#if model.openDelay}}[openDelay]='{{variableName}}OpenDelay'{{/if}} {{#if model.closeDelay}}[closeDelay]='{{variableName}}CloseDelay'{{/if}} {{#if model.triggers}}[triggers]='{{variableName}}Triggers'{{/if}} [placement]='{{variableName}}Placement' {{#if model.disabled}}disableTooltip{{/if}} >{{model.text}}</button>"
+			},
+			"htmlThumbnail": "<button style='background: white; padding: .375rem .75rem; font-size: 1rem; color: #6c757d; text-align: center; vertical-align: middle; line-height: 1.5rem; border: 1px solid #6c757d; border-radius: .375rem; margin-left: 10px; margin-top: 1rem;' {{#if disabled}}disabled{{/if}}>{{text}}</button>"
+		},
+		{
 			"type": "bs-button",
-			"htmlThumbnail": "<button style='background: #0d6efd; padding: .375rem .75rem; font-size: 1rem; color: #fff; text-align: center; vertical-align: middle; line-height: 1.5rem; border: 1px solid #0d6efd; border-radius: .375rem; margin-left: 10px; margin-top: 1rem;' {{#if disabled}}disabled{{/if}}>{{text}}</button>",
-			"htmlPreview": "<button className='btn btn-{{kind}}' {{#if disabled}}disabled{{/if}}>{{text}}</button>",
+			"htmlPreview": "<button className='btn btn-{{kind}}' {{#if disabled}}disabled{{/if}}>{{text}} - {{size}}</button>",
 			"inputs": {
 				"text": "string",
 				"disabled": "boolean",
@@ -67,24 +896,14 @@
 			},
 			"defaultInputs": {
 				"text": "Button",
-				"kind": "primary",
-				"items": []
+				"kind": "primary"
 			},
 			"angular": {
-				"imports": {
-					"path/to/module": [
-						"Module1",
-						"Module2"
-					],
-					"path/to/other": [
-						"Other1",
-						"Other2"
-					]
-				},
 				"inputs": "@Input() {{variableName}}Label = \"{{model.label}}\";",
 				"outputs": "@Output() {{variableName}}Change = new EventEmitter<any>();",
-				"template": "<button class='btn btn-{{model.kind}}' [label]=\"{{variableName}}Label\" {{#if model.disabled}}disabled{{/if}}>{{model.text}} - {{model.size}} {{children}}</button>"
-			}
+				"template": "<button class='btn btn-{{model.kind}}' [label]=\"{{variableName}}Label\" {{#if model.disabled}}disabled{{/if}}>{{model.text}}</button>"
+			},
+			"htmlThumbnail": "<button style='background: #0d6efd; padding: .375rem .75rem; font-size: 1rem; color: #fff; text-align: center; vertical-align: middle; line-height: 1.5rem; border: 1px solid #0d6efd; border-radius: .375rem; margin-left: 10px; margin-top: 1rem;' {{#if disabled}}disabled{{/if}}>{{text}}</button>"
 		}
 	]
 }
